@@ -9,6 +9,7 @@ const DeleteMember = () => {
   const [filteredMembers, setFilteredMembers] = useState([]);
   const { code } = useParams(); 
   const [teamId, setTeamId] = useState(null);
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,6 +57,8 @@ const DeleteMember = () => {
       } catch (error) {
         console.error('Error deleting member:', error);
         alert('An unexpected error occurred. Please try again later.');
+      } finally {
+        setIsFormVisible(false); // Close the form regardless of the outcome
       }
     }
   };
@@ -66,14 +69,18 @@ const DeleteMember = () => {
 
   return (
     <div>
-      <label htmlFor="memberSelect">Select Member:</label>
-      <select id="memberSelect" value={selectedMember} onChange={handleMemberChange}>
-        <option value="">Select a member</option>
-        {filteredMembers.map(member => (
-          <option key={member.id} value={member.id}>{`${member.first_name} ${member.last_name}`}</option>
-        ))}
-      </select>
-      <button onClick={handleDeleteMember}>Delete Member</button>
+      <button onClick={() => setIsFormVisible(true)}>Select member to delete</button>
+      {isFormVisible && (
+        <div>
+          <select id="memberSelect" value={selectedMember} onChange={handleMemberChange}>
+            <option value="">Select a member</option>
+            {filteredMembers.map(member => (
+              <option key={member.id} value={member.id}>{`${member.first_name} ${member.last_name}`}</option>
+            ))}
+          </select>
+          <button onClick={handleDeleteMember}>Delete Member</button>
+        </div>
+      )}
     </div>
   );
 };

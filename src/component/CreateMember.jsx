@@ -6,6 +6,8 @@ import { TeamDataContext } from '../component/Context';
 function CreateMember() {
   const { code } = useParams(); 
   const contextData = useContext(TeamDataContext);
+  const [isFormVisible, setIsFormVisible] = useState(false);
+
   const teams = contextData.teams;
 
   const [teamId, setTeamId] = useState(null);
@@ -45,6 +47,7 @@ function CreateMember() {
       if (response.ok) {
         alert("Member created successfully!");
         setMemberData({ first_name: "", last_name: "", email: "", color: "#000000", allowed_dayoff: 0 });
+        setIsFormVisible(false);
       } else {
         const data = await response.json();
         alert(data.error || "Failed to create member. Please try again.");
@@ -65,6 +68,9 @@ function CreateMember() {
 
   return (
     <div>
+            <button onClick={() => setIsFormVisible(true)}>Create member</button>
+            {isFormVisible && (
+
       <form onSubmit={handleSubmit} className="member-form">
         <div>
           <label>First Name:</label>
@@ -74,6 +80,7 @@ function CreateMember() {
             value={memberData.first_name}
             onChange={handleChange}
           />
+          
         </div>
         <div>
           <label>Last Name:</label>
@@ -113,6 +120,7 @@ function CreateMember() {
         </div>
         <button type="submit">Create Member</button>
       </form>
+        )}     
     </div>
   );
 }
