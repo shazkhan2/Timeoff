@@ -1,53 +1,6 @@
 body {
-  font-family: "Poppins", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  max-width: 1440px;
-  margin: 0 auto;
-  background-color: rgb(249, 244, 244);
-  padding: 4rem 10rem; 
-  
-}
-
-h1 {
-  font-size: 2rem;
-  color: var(--VeryDarkBlue);
-  margin: 1rem 0;
-}
-
-  p {
-    line-height: 1.6;
-    color: var(--GrayishViolet);
-    margin: 0.5rem 0;
-  }
-
-  ul,
-li {
-  list-style-type: none;
-  padding: 0;
-}
-
-a,
-button {
-  text-decoration: none;
-  background-color: hsl(152, 8%, 69%);
-  color: var(--GrayishViolet);
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-
-a, 
-button:hover {
-  background-color: hsl(180, 58%, 71%);
-}
-
-@media screen and (max-width: 375px) {
-  body {
-    padding: 1rem 1rem;
-  }
+  margin: 0;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
