@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { apiPath } from '../api';
 import { TeamDataContext } from '../component/Context';
 import { useParams } from 'react-router-dom';
+import '../styles/deleteMember.css';
 
 const DeleteMember = () => {
   const { members, teams } = useContext(TeamDataContext);
