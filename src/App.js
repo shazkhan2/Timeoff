@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import Team from "./pages/Team";
 import MemberPage from "./pages/Member";
 import { TeamDataProvider } from "./component/Context"; 
+import TimeoffPage from "./pages/Timeoff";
+
 
 function App() {
   return (

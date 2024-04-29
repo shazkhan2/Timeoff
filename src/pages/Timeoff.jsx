@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 import { apiPath } from '../api';
-import TimeoffDetails from "../component/TimeoffDetails"; 
+import TimeoffDetails from "../component/TimeoffDetails";
+
 const TimeoffPage = () => {
   const [timeoff, setTimeoff] = useState(null);
   const { id } = useParams();
