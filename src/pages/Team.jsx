@@ -5,6 +5,7 @@ import DeleteTeam from '../component/DeleteMember'
 import TeamMembers from '../component/TeamDetails'
 import MembersList from '../component/MembersList'
 import '../styles/team.css'
+import DeleteTimeoff from '../component/DeleteTimeoff'
 
 function Team(){
 return(
@@ -26,6 +27,7 @@ return(
         <CreateMember/>
         <DeleteTeam/>
         <CreateTimeoff/>
+        <DeleteTimeoff/>
       </section>
       <section className="DayOff">
         <h3>Day Off Rank</h3>

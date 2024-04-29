@@ -13,6 +13,8 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/team/:code" element={<Team />} />
             <Route exact path="/members/:id" element={<MemberPage />} />
+            <Route exact path="/timeoff/:id" element={<TimeoffPage />} />
+
             <Route path="*" element={<h1>404 Page not found</h1>} />
           </Routes>
         </TeamDataProvider>

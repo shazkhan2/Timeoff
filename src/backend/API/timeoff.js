@@ -35,4 +35,19 @@ router.post("/:id", async (request, response) => {
   }
 });
 
+router.delete("/:id", async (request, response) => {
+  const memberId = request.params.id;
+  try {
+    const deletedTimeoff = await db("timeoff").where({ member_id: memberId }).del();
+    if (!deletedTimeoff) {
+      return response.status(404).json({ error: "Timeoff not found" });
+    }
+    response.json({ message: "Timeoff deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    response.status(500).json({ error: "Failed to delete the timeoff" });
+  }
+});
+
+
 module.exports = router;
